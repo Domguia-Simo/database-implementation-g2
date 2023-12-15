@@ -12,13 +12,13 @@ if (! empty($_POST["signup-btn"])) {
 	$phone = $_POST['phone'];
 	$age = $_POST['age'];
 
-	$con = mysqli_connect("localhost" ,"root" ,"" ,"social_media");
+	$con = mysqli_connect("localhost" ,"root" ,"" ,"facebook");
 	$query1 = mysqli_query($con ,"select * from user where email='$email'");
 	$exist = mysqli_fetch_assoc($query1);	
 	if($exist){
 		$error = 'Email already exist';
 	}else{
-		$query2 = mysqli_query($con ,"insert into user values(null ,'$email' ,'$name' ,'$password' ,$phone ,$age)");
+		$query2 = mysqli_query($con ,"insert into user values(null ,'$email' ,'$password' ,'$name',$phone ,$age)");
 		header("location:login.php");
 	}
 

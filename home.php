@@ -22,6 +22,18 @@ if (isset($_SESSION["username"])) {
 <link href="assets/css/user-registration.css" type="text/css"
 	rel="stylesheet" />
 </HEAD>
+<style>
+    .nav{
+        border:solid 0px red;
+        display:flex;
+        justify-content:space-evenly;
+    }
+    .nav input{
+        width:fit-content;
+        padding:10px 20px;
+    }
+
+    </style>
 <BODY>
 	<div class="phppot-container">
 		<div class="page-header">
@@ -29,7 +41,18 @@ if (isset($_SESSION["username"])) {
 		</div>
 		<h2><div class="page-content">Welcome <mark style='font-size:xx-large'><?php echo $username;?><mark> </div></h2>
 
+        <div >
+                <form method="post" action="result.php" class='nav'>
+                    <input type="submit" name="inner-join" value="Inner Join"/>
+                    <input type="submit" name="left-join" value="left Join"/>
+                    <input type="submit" name="right-join" value="right Join"/>
+                    <input type="submit" name="cross-join" value="cross Join"/>
+                    <input type="submit" name="full-join" value="full Join"/>
 
+                <form>
+        </div>
+
+        <h2>List of users</h2>
         <table border='1'>
             <tr>
                 <th>Name</th>
@@ -37,7 +60,7 @@ if (isset($_SESSION["username"])) {
                 <th>Age</th>
             </tr>
             <?php
-                $con = mysqli_connect("localhost" ,"root" ,"" ,"social_media");
+                $con = mysqli_connect("localhost" ,"root" ,"" ,"facebook");
                 $query = mysqli_query($con ,"select * from user");
                 while($data = mysqli_fetch_assoc($query)){
                     ?>

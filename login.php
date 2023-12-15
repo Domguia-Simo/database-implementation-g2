@@ -10,7 +10,7 @@ if (! empty($_POST["login-btn"])) {
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 
-	$con = mysqli_connect("localhost" ,"root" ,"" ,"social_media");
+	$con = mysqli_connect("localhost" ,"root" ,"" ,"facebook");
 	$query = mysqli_query($con ,"select * from user where email='$email'");
 	$data = mysqli_fetch_assoc($query);
 	if($data == null){
